@@ -1,0 +1,13 @@
+map1 obtenido con el paquete explore_lite:
+En kinect_gmapping.launch.xml    
+    <param name=" " value="0.5"/>
+    <param name="linearUpdate" value="0.1"/>
+    <param name="angularUpdate" value="0.1"/>
+En dwa_local_planner_params.yaml:
+  max_rot_vel: 2.0  # choose slightly less than the base's capability
+  min_rot_vel: 0.4  # this is the min angular velocity when there is negligible translational velocity
+  rot_stopped_vel: 0.4
+
+Antes la max_rot_vel: 5.0 este nodo para relocalizarse gira sobre si mismo, esta velocidad es demasido alta para el tiempo de actualizacion utilizado con el gmapping. map_update_interval antes era 5 segundos, linearUpdate=0.5 y angularUpdate=0.436 que parecen demasiada distancia.
+
+Voy a reducir más la velocidad de giro:
