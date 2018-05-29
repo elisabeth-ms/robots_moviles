@@ -38,7 +38,7 @@
   </node>
 
 
-  <include file="$(find turtlebot_gazebo)/launch/gmapping_demo.launch" />
+  <include file="$(find robots_moviles)/launch/gmapping_demo.launch" />
 
     <!-- Move base -->
   <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml" />
