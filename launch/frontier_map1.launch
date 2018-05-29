@@ -54,7 +54,7 @@
     <param name="goal_aliasing" value="2.0"/>
     
     <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" ns="explore_costmap" />
-    <rosparam file="$(find turtlebot_samples)/param/costmap_exploration.yaml" command="load" ns="explore_costmap" />
+    <rosparam file="$(find robots_moviles)/param/costmap_exploration.yaml" command="load" ns="explore_costmap" />
 
 
   </node>
