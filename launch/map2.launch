@@ -21,6 +21,8 @@
   </include>
 
   <node name="rviz" pkg="rviz" type="rviz" respawn="true" />
+ <!-- Move base -->
+  <include file="$(find robots_moviles)/launch/includes/move_base.launch.xml"/>
 
   <!--include file="$(find turtlebot_teleop)/launch/keyboard_teleop.launch"/-->
   <!--include file="$(find turtlebot_gazebo)/launch/gmapping_demo.launch"/-->
