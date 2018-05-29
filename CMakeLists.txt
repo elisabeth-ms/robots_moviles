@@ -21,6 +21,7 @@ include_directories(
 
  install(PROGRAMS
    scripts/explore.py
+   scripts/measure_distance.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

@@ -33,9 +33,12 @@ class Explore:
         t = Twist()
         t.angular.z = 0.7
         self.listener = tf.TransformListener()
+        self.init_time = rospy.Time
+        self.final_time = rospy.Time
 
         while not rospy.is_shutdown():
             if self.init:
+                self.init_time = rospy.get_time()
                 for i in range(16):
                     self.pub_vel.publish(t)
                     self.rate.sleep()
@@ -105,6 +108,9 @@ class Explore:
                     self.end = True
                     self.goal_reached = True
                     print "Complete Area scanned"
+                    self.final_time = rospy.get_time()
+                    rospy.loginfo("Tiempo: %i", self.final_time-self.init_time)
+
                 else:
                     print self.fronteirs
                     if self.use_random_cell:
