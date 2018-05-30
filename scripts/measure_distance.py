@@ -10,7 +10,8 @@ class MeasureDistance:
         self.first = True
         self.distance = 0
         r = rospy.Rate(10)
-
+        self.init_time = rospy.Time
+        self.final_time = rospy.Time
         self.listener = tf.TransformListener()
         r.sleep()
         r.sleep()
@@ -27,9 +28,12 @@ class MeasureDistance:
                     print "Distancia recorrida:",self.distance
                     self.previous_x = self.current_x
                     self.previous_y = self.current_y
+                    self.final_time = rospy.get_time()
+                    rospy.loginfo("Tiempo: %i", self.final_time-self.init_time)
                 except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
                     continue
             else:
+                self.init_time = rospy.get_time()
                 try:
                     (trans, rot) = self.listener.lookupTransform('map', 'base_footprint', rospy.Time(0))
                     self.previous_x = trans[0]
