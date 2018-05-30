@@ -21,7 +21,8 @@ include_directories(
 
  install(PROGRAMS
    scripts/explore.py
-   scripts/measure_distance.py
+   scripts/measure_distance_time.py
+   scripts/csv_to_map.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
