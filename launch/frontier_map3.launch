@@ -11,6 +11,7 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="use_sim_time" value="true"/>
     <arg name="debug" value="false"/>
+    <arg name="gui" value="false"/>
     <arg name="world_name" value="$(find turtlebot_gazebo)/worlds/map3.world"/>
   </include>
   
@@ -53,7 +54,7 @@
     <!-- Should be less than sensor range -->
     <param name="goal_aliasing" value="2.0"/>
     
-    <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" ns="explore_costmap" />
+    <rosparam file="$(find robots_moviles)/param/costmap_common_params.yaml" command="load" ns="explore_costmap" />
     <rosparam file="$(find robots_moviles)/param/costmap_exploration.yaml" command="load" ns="explore_costmap" />
 
 
